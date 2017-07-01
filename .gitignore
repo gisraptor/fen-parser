@@ -1,0 +1,13 @@
+# Remove Python cache folders
+.cache/
+__pycache__/
+
+# Remove sample .fen files
+*.fen
+
+# Remove vim backup files
+*.sw*
+
+# Remove pyc and pyo files
+*.pyc
+*.pyo
