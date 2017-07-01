@@ -46,6 +46,4 @@ def samples():
 
 
 def test_ascii_display(samples):
-    print("%r" % render_ascii_board(samples['boards'][0]))
-    print("%r" % samples['output']['ascii'])
     assert render_ascii_board(samples['boards'][0]) == samples['output']['ascii']

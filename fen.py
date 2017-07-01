@@ -1,13 +1,14 @@
 # -*- coding: utf-8 -*-
 """This is the FEN notation parsing module."""
 import re
+from display import render_ascii_board
 
 class Position(object):
     """A FEN position as parsed from the FEN argument string
 
     >>> p = Position('rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1')
     """
-    def __init__(self, fen):
+    def __init__(self, fen, renderer=render_ascii_board):
         """Initialize a Position instance from a FEN string"""
         castle_validator = re.compile('^[KQkq-]+$')
         en_passant_validator = re.compile('^[a-h1-8-]+$')
@@ -67,8 +68,11 @@ class Position(object):
             raise ValueError('Invalid FEN placement string: %s' % placement)
 
 
+    def __str__(self):
+        return render_ascii_board(self.board)
 
 
 if __name__ == "__main__":
     initial_fen = 'rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1'
     p = Position(initial_fen)
+    print(p)
