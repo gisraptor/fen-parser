@@ -55,11 +55,11 @@ class Position(object):
         else:
             raise ValueError('Invalid en passant target: %s' % en_passant)
         if halfmove_clock.isdigit():
-            self.halfmove_clock = halfmove_clock
+            self.halfmove_clock = int(halfmove_clock)
         else:
             raise ValueError('The half move clock is not an integer: %s' % halfmove_clock)
         if fullmove_number.isdigit():
-            self.fullmove_number = fullmove_number
+            self.fullmove_number = int(fullmove_number)
         else:
             raise ValueError('The full move number is not an integer: %s' % fullmove_number)
 
