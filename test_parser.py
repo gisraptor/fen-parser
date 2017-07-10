@@ -49,7 +49,7 @@ def test_six_space_separated_fields(samples):
         p = Position(sample)
         assert p.board != None
         assert p.active != None
-        assert p.castle != None
+        assert p.castling_availability != None
         assert p.en_passant != None
         assert p.halfmove_clock != None
         assert p.fullmove_number != None
@@ -65,7 +65,7 @@ def test_castle_values(samples):
     castle_verifier = re.compile('^[KQkq-]+$')
     for sample in samples['valid']:
         p = Position(sample)
-        assert castle_verifier.match(p.castle)
+        assert castle_verifier.match(p.castling_availability)
 
 
 def test_en_passant_values(samples):

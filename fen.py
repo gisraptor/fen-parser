@@ -32,24 +32,24 @@ class Position(object):
         en_passant_validator = re.compile('^[a-h1-8-]+$')
         self.board = None
         self.active = None
-        self.castle = None
+        self.castling_availability = None
         self.en_passant = None
         self.halfmove_clock = None
         self.fullmove_number = None
         self.fen = fen
         if not fen or not isinstance(fen, str):
             raise ValueError('FEN must be a string with six space-delimited fields')
-        (placement, active, castle, en_passant,
+        (placement, active, castling_availability, en_passant,
                 halfmove_clock, fullmove_number) = self.fen.split(' ')
         self.board = self.__build_board(placement)
         if active in ('w', 'b'):
             self.active = active
         else:
             raise ValueError('Invalid active color: %s' % active)
-        if castle_validator.match(castle):
-            self.castle = castle
+        if castle_validator.match(castling_availability):
+            self.castling_availability = castling_availability
         else:
-            raise ValueError('Invalid castling availability: %s' % castle)
+            raise ValueError('Invalid castling availability: %s' % castling_availability)
         if en_passant_validator.match(en_passant):
             self.en_passant = en_passant
         else:
