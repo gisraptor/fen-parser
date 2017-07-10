@@ -78,10 +78,10 @@ def test_en_passant_values(samples):
 def test_halfmove_clock(samples):
     for sample in samples['valid']:
         p = Position(sample)
-        assert p.halfmove_clock.isdigit()
+        assert p.halfmove_clock >= 0
 
 
 def test_fullmove_number(samples):
     for sample in samples['valid']:
         p = Position(sample)
-        assert p.fullmove_number.isdigit()
+        assert p.fullmove_number >= 0
