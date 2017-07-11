@@ -207,13 +207,13 @@ class Position(object):
 
     def __set_halfmove_clock(self):
         if self.piece_moved in 'Pp' or self.capture:
-            print('halfmove_clock 1: %r' % self.halfmove_clock)
+            #print('halfmove_clock 1: %r' % self.halfmove_clock)
             self.halfmove_clock = 0
-            print('halfmove_clock 2: %r' % self.halfmove_clock)
+            #print('halfmove_clock 2: %r' % self.halfmove_clock)
         else:
-            print('halfmove_clock 1: %r' % self.halfmove_clock)
+            #print('halfmove_clock 1: %r' % self.halfmove_clock)
             self.halfmove_clock += 1
-            print('halfmove_clock 2: %r' % self.halfmove_clock)
+            #print('halfmove_clock 2: %r' % self.halfmove_clock)
 
 
     def __execute_move(self, move=None):
